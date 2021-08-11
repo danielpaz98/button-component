@@ -1,0 +1,161 @@
+/* DEFAULT BUTTON */
+.btn {
+	--text-color              : #3F3F3F;
+	--color                   : #E0E0E0;
+	--alt-color               : #AEAEAE;
+	--alt-color-outline       : #E0E0E0AA;
+	--icon-font-size          : 24px;
+	display                   : flex;
+	justify-content           : center;
+	align-items               : center;
+	gap                       : .25em;
+	cursor                    : pointer;
+	min-width                 : 80px;
+	height                    : 40px;
+	padding                   : 0.5625em 1em;
+	font-size                 : 14px;
+	border-radius             : 6px;
+	background-color          : var(--color);
+	color                     : var(--text-color);
+	border                    : 1px solid var(--color);
+	box-shadow                : 0px 2px 3px #33333333;
+	outline                   : 0;
+	text-decoration           : none;
+	text-indent               : .0892857143em;
+	transition-duration       : .3s;
+	transition-property       : all;
+	transition-timing-function: cubic-bezier(.4, 0, .2 ,1);
+	-webkit-user-select       : none;
+	-moz-user-select          : none;
+	-ms-user-select           : none;
+	user-select               : none;
+	white-space               : nowrap;
+}
+
+.btn:hover, .btn:focus {
+	background-color: var(--alt-color);
+	box-shadow      : none;
+}
+/* ----------------------------------------- */
+
+/* BUTTON ICON */
+.btn i.material-icons {
+	font-size          : var(--icon-font-size);
+	order              : -1;
+	width              : 0;
+	opacity            : 0;
+	transition-property: opacity, width;
+	transition-duration: .3s;
+}
+
+.btn i.material-icons.show {
+	width  : 24px;
+	opacity: 1;
+}
+
+.btn.icon-right i.material-icons {
+	order: 1;
+}
+/* ----------------------------------------- */
+
+/* DISABLED AND BLOCK BUTTON */
+.btn.disabled {
+	pointer-events  : none !important;
+	background-color: #E0E0E0 !important;
+	color           : #9E9E9E !important;
+	border          : none !important;
+}
+
+.btn.btn-text.disabled {
+	background-color: transparent !important;
+}
+
+.btn.disabled-box-shadow {
+	box-shadow: 0px 0px 0px transparent;
+}
+
+.btn.block {
+	min-width: 100%;
+}
+/* ----------------------------------------- */
+
+/* OUTLINE BUTTON */
+[class^="btn btn-outline"] {
+	--color: var(--text-color);
+}
+
+.btn.btn-outline {
+	background-color: transparent;
+	color           : var(--color);
+	border          : 1px solid var(--color);
+}
+
+.btn.btn-outline:hover, .btn.btn-outline:focus {
+	background-color: var(--alt-color-outline);
+	box-shadow      : none;
+}
+/* ----------------------------------------- */
+
+/* TEXT BUTTON */
+[class^="btn btn-text"] {
+	--color    : var(--text-color);
+	--alt-color: #000;
+}
+
+.btn.btn-text {
+	background-color: transparent;
+	color           : var(--color);
+	border          : none;
+	box-shadow      : none;
+}
+
+.btn.btn-text:hover, .btn.btn-text:focus {
+	color: var(--alt-color);
+}
+/* ----------------------------------------- */
+
+/* BUTTON SIZES */
+.btn.size-small {
+	--icon-font-size: 18px;
+	font-size       : .75rem;
+	min-width       : 40px;
+	height          : 30px;
+	padding         : 0 12px;
+}
+
+.btn.size-medium {
+	min-width: 100px;
+	height   : 44px;
+	padding  : 0 18px;
+}
+
+.btn.size-large {
+	min-width: 120px;
+	height   : 50px;
+	padding  : 0 24px;
+}
+/* ----------------------------------------- */
+
+/* BUTTON COLORS */
+[class^="btn btn-"]:not(.btn-outline):not(.btn-text) {
+	--text-color: #FFF;
+}
+
+.btn.btn-primary {
+	--color            : #3D5AFE;
+	--alt-color        : #0039CB;
+	--alt-color-outline: #2962FF33;
+}
+
+.btn.btn-secondary {
+	--color            : #455A64;
+	--alt-color        : #1C313A;
+	--alt-color-outline: #455A6433;
+}
+
+.btn.btn-danger {
+	--color            : #D32F2F;
+	--alt-color        : #9A0007;
+	--alt-color-outline: #D32F2F33;
+}
+/* ----------------------------------------- */
