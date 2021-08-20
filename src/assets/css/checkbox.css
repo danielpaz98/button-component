@@ -13,12 +13,14 @@
   --border          : #D1D6EE;
   --border-hover    : #BBC1E1;
   --border-active   : #88C0D0;
+	--s: 1px;
+	--b: var(--border);
   position          : relative;
   width             : 20px;
   height            : 20px;
   outline           : none;
   background        : #FFF;
-  box-shadow        : inset 0 0 0 var(--s, 1px) var(--b, var(--border));
+  box-shadow        : inset 0 0 0 var(--s) var(--b);
   margin            : 0;
   padding           : 0;
   cursor            : pointer;
