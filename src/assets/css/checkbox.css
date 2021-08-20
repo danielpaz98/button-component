@@ -1,58 +1,53 @@
 .checkbox-option {
-  display      : flex;
-  align-items  : center;
-  gap          : .5rem;
-  margin-bottom: .5rem;
+	display      : flex;
+	align-items  : center;
+	gap          : 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .checkbox-option label {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .input-checkbox {
-  --border          : #D1D6EE;
-  --border-hover    : #BBC1E1;
-  --border-active   : #88C0D0;
-  position          : relative;
-  width             : 20px;
-  height            : 20px;
-  outline           : none;
-  background        : #FFF;
-  box-shadow        : inset 0 0 0 var(--s, 1px) var(--b, var(--border));
-  margin            : 0;
-  padding           : 0;
-  cursor            : pointer;
-  border-radius     : 4px;
-  -webkit-appearance: none;
-  -moz-appearance   : none;
-  appearance        : none;
-  overflow          : hidden;
-  transition        : box-shadow .2s .35s;
+	position          : relative;
+	width             : 20px;
+	height            : 20px;
+	outline           : none;
+	background        : #FFF;
+	box-shadow        : inset 0 0 0 1px #D1D6EE;
+	margin            : 0;
+	padding           : 0;
+	cursor            : pointer;
+	border-radius     : 4px;
+	-webkit-appearance: none;
+	-moz-appearance   : none;
+	appearance        : none;
+	overflow          : hidden;
+	transition        : box-shadow .2s .35s;
 }
 
 .input-checkbox:hover {
-  --s: 2px;
-  --b: var(--border-hover);
+	box-shadow: inset 0 0 0 2px #BBC1E1;
 }
 
 .input-checkbox:checked {
-  --s       : 10px;
-  --b       : var(--border-active);
-  transition: box-shadow .2s;
+	box-shadow: inset 0 0 0 10px #88C0D0;
+	transition: box-shadow .2s;
 }
 
 .input-checkbox::before {
-  position        : absolute;
-  top             : 50%;
-  left            : 50%;
-  transform       : translate(-50%, -50%) scale(0);
-  transform-origin: top right;
-  font-family     : "Material Icons";
-  content         : "\e876";
-  color           : white;
-  transition      : transform .2s .2s;
+	position        : absolute;
+	top             : 50%;
+	left            : 50%;
+	transform       : translate(-50%, -50%) scale(0);
+	transform-origin: top right;
+	font-family     : "Material Icons";
+	content         : "\e876";
+	color           : white;
+	transition      : transform .2s .2s;
 }
 
 .input-checkbox:checked:before {
-  transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
 }
