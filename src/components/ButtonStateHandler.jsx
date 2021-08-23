@@ -6,11 +6,7 @@ export default function ButtonStateHandler({ children, state }) {
 	const childProps = children.props;
 	const { updateButtonState } = useButtonState();
 
-	const handleOnChange = (val) => {
-		const value = val && val != "default" ? val : false;
-		const updateState = state ? (value ? { [state]: value } : { [state]: false }) : value;
-		updateButtonState(updateState);
-	};
+	const handleOnChange = (value) => updateButtonState(state, value);
 
 	return <ChildComponent onChange={handleOnChange} {...childProps} />;
 }

@@ -5,8 +5,10 @@ import ButtonContext from "~/context/ButtonContext";
 export default function useButtonState() {
 	const { buttonState, setButtonState } = useContext(ButtonContext);
 
-	const updateButtonState = (state) => {
-		setButtonState((prevState) => ({ ...prevState, ...state }));
+	const updateButtonState = (state, value) => {
+		value = value && value != "default" ? value : false;
+		const updateState = state ? (value ? { [state]: value } : { [state]: false }) : value;
+		setButtonState((prevState) => ({ ...prevState, ...updateState }));
 	};
 
 	return { buttonState, updateButtonState };
