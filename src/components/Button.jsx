@@ -9,7 +9,7 @@ export default function Button(props) {
 	const classNameBtn = classNames("btn", {
 		[`btn-${color}`]: color && !disabled,
 		[`btn-${variant}`]: variant,
-		[`size-${size}`]: size && size != "default",
+		[`size-${size}`]: size,
 		[`icon-${icon}`]: icon,
 		...staticStates,
 	});
