@@ -1,21 +1,26 @@
 .range-slider {
 	display    : flex;
 	align-items: center;
-	gap        : .5rem;
+}
+
+.range-label {
+	margin-right: .5rem;
 }
 
 .range-content {
-	position        : relative;
-	height          : 60px;
-	border-radius   : .5rem;
-	background-color: hsl(0, 0%, 95%);
-	box-shadow      : 0 2px 0 #D1D6EE;
-	padding         : 0 1rem;
-	display         : flex;
-	justify-content : center;
-	align-items     : center;
-	gap             : .75rem;
-	color           : #88C0D0;
+	position: relative;
+	height  : 40px;
+	/* border-radius   : .5rem; */
+	border-top-left-radius   : .5rem;
+	border-bottom-left-radius: .5rem;
+	background-color         : hsl(0, 0%, 95%);
+	box-shadow               : 0 2px 0 #D1D6EE;
+	padding                  : 0 1rem;
+	display                  : flex;
+	justify-content          : center;
+	align-items              : center;
+	gap                      : .75rem;
+	color                    : #88C0D0;
 }
 
 .range-input {
@@ -59,4 +64,19 @@
 	width           : 8px;
 	height          : 8px;
 	background-color: inherit;
+}
+
+.range-btn-reset {
+	cursor                    : pointer;
+	display                   : flex;
+	align-items               : center;
+	outline                   : none;
+	border                    : none;
+	padding                   : .5rem;
+	border-top-right-radius   : .25rem;
+	border-bottom-right-radius: .25rem;
+	background-color          : #88C0D0;
+	color                     : #FFF;
+	box-shadow                : 0 2px 0 #73A2AF;
+	transition                : box-shadow .1s;
 }
