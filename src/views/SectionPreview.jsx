@@ -4,7 +4,6 @@ import CheckboxList from "~/components/CheckboxList";
 import Checkbox from "~/components/Checkbox";
 import Select from "~/components/Select";
 import RangeSlider from "~/components/RangeSlider";
-import ButtonStateHandler from "~/components/ButtonStateHandler";
 import ComponentSyntaxHighlighter from "~/components/ComponentSyntaxHighlighter";
 // HOOKS
 import useButtonState from "~/hooks/useButtonState";
@@ -12,7 +11,7 @@ import useButtonState from "~/hooks/useButtonState";
 import { checkboxOptions, iconOptions, colorOptions, variantOptions, sizeOptions } from "~/staticData";
 
 export default function SectionPreview() {
-	const { buttonState } = useButtonState();
+	const { buttonState, updateButtonState } = useButtonState();
 	const ButtonComponent = <Button text="Click me" {...buttonState} />;
 
 	return (
@@ -27,31 +26,48 @@ export default function SectionPreview() {
 					<h3 className="title-section">Options</h3>
 
 					<div className="control-options">
-						<ButtonStateHandler>
-							<CheckboxList values={checkboxOptions} />
-						</ButtonStateHandler>
+						<CheckboxList
+							values={checkboxOptions}
+							onChange={(e) => updateButtonState({ key: e.value, value: e.checked })}
+						/>
 
 						<div className="option-group">
-							<ButtonStateHandler state="icon">
-								<Select placeholder="select a icon..." labelText="Icon:" values={iconOptions} block />
-							</ButtonStateHandler>
+							<Select
+								placeholder="select a icon..."
+								labelText="Icon:"
+								values={iconOptions}
+								block
+								onChange={(e) => updateButtonState({ key: "icon", value: e.value })}
+							/>
 
-							<ButtonStateHandler>
-								<Checkbox labelText="Right" value="icon-right" />
-							</ButtonStateHandler>
+							<Checkbox
+								labelText="Right"
+								value="icon-right"
+								onChange={(e) => updateButtonState({ key: e.value, value: e.checked })}
+							/>
 						</div>
 
-						<ButtonStateHandler state="color">
-							<Select placeholder="select a color..." labelText="Color:" values={colorOptions} block />
-						</ButtonStateHandler>
+						<Select
+							placeholder="select a color..."
+							labelText="Color:"
+							values={colorOptions}
+							block
+							onChange={(e) => updateButtonState({ key: "color", value: e.value })}
+						/>
 
-						<ButtonStateHandler state="variant">
-							<Select placeholder="select a variant..." labelText="Variant:" values={variantOptions} block />
-						</ButtonStateHandler>
+						<Select
+							placeholder="select a variant..."
+							labelText="Variant:"
+							values={variantOptions}
+							block
+							onChange={(e) => updateButtonState({ key: "variant", value: e.value })}
+						/>
 
-						<ButtonStateHandler state="size">
-							<RangeSlider labelText="Size:" values={sizeOptions} />
-						</ButtonStateHandler>
+						<RangeSlider
+							labelText="Size:"
+							values={sizeOptions}
+							onChange={(e) => updateButtonState({ key: "size", value: e.value })}
+						/>
 					</div>
 				</div>
 			</div>
