@@ -23,4 +23,4 @@ export const variantOptions = [
 	{ text: "text", value: "text" },
 ];
 
-export const sizeOptions = ["default", "small", "medium", "large"];
+export const sizeOptions = ["small", "medium", "large"];
