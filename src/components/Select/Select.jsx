@@ -3,11 +3,12 @@ import "~/assets/css/select.css";
 import PropTypes from "prop-types";
 import classNames from "clsx";
 
-export default function Select({ labelText, placeholder, value, values = [], block, onChange = () => {} }) {
+export default function Select({ labelText, placeholder, defaultValue, value, values, block, onChange = () => {} }) {
 	const className = classNames("select-list", { block });
+	const selectValue = value?.value;
 
-	const handleChange = (e) => onChange(e.target.value);
-	const handleReset = () => onChange("");
+	const handleOnChange = (e) => onChange({ text: labelText, value: e.target.value });
+	const handleReset = () => onChange({ text: labelText, value: "" });
 
 	return (
 		<div className="select-container">
@@ -18,7 +19,7 @@ export default function Select({ labelText, placeholder, value, values = [], blo
 			)}
 
 			<div className="select-content">
-				<select className={className} value={value} onChange={handleChange}>
+				<select className={className} value={selectValue} onChange={handleOnChange}>
 					<option value="" title={placeholder} hidden defaultValue>
 						{placeholder}
 					</option>

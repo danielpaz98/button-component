@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 
-export function useStateManager({ onChange: propsOnChange, value: propsValue, ...restSelectProps }) {
-	const initialValue = propsValue ? propsValue : "";
+export function useStateManager({ defaultValue, labelText, value: propsValue, onChange: propsOnChange, ...restProps }) {
+	const initialValue = defaultValue ? { text: labelText, value: defaultValue } : propsValue;
 	const [stateValue, setStateValue] = useState(initialValue);
 
 	const onChange = useCallback(
@@ -15,8 +15,10 @@ export function useStateManager({ onChange: propsOnChange, value: propsValue, ..
 	);
 
 	return {
-		...restSelectProps,
-		onChange,
+		...restProps,
+		defaultValue,
+		labelText,
 		value: stateValue,
+		onChange,
 	};
 }

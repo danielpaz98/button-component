@@ -1,9 +1,10 @@
 import { useState, useCallback } from "react";
 
-export function useStateManager({ onChange: propsOnChange, value: propsValue, checked = false, ...restSelectProps }) {
-	const initialValue = typeof propsValue === "string" ? { [propsValue]: checked } : {};
+export function useStateManager({ labelText, checked, value: propsValue, onChange: propsOnChange, ...restProps }) {
+	const initialChecked = checked === "" || checked || false;
+	const initialValue = propsValue ? { text: labelText, value: propsValue, checked: initialChecked } : propsValue;
+
 	const [stateValue, setStateValue] = useState(initialValue);
-	const checkedValue = typeof propsValue === "string" ? stateValue[propsValue] : false;
 
 	const onChange = useCallback(
 		(value) => {
@@ -16,9 +17,10 @@ export function useStateManager({ onChange: propsOnChange, value: propsValue, ch
 	);
 
 	return {
-		...restSelectProps,
-		onChange,
+		...restProps,
+		labelText,
 		value: stateValue,
-		checked: checkedValue,
+		checked: stateValue.checked,
+		onChange,
 	};
 }

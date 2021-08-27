@@ -1,25 +1,34 @@
 import { useState, useCallback } from "react";
 
-export function useStateManager({ onChange: propsOnChange, value: propsValue, values = [], ...restSelectProps }) {
-	const initialValue = values.find((value) => value === propsValue) || values[0] || "?";
+export function useStateManager({
+	defaultValue,
+	labelText,
+	value: propsValue,
+	values = [],
+	onChange: propsOnChange,
+	...restProps
+}) {
+	const initialValue = defaultValue ? { text: labelText, value: defaultValue } : propsValue;
 	const max = values.length - 1;
 
-	const [value, setValue] = useState(initialValue);
+	const [stateValue, setStateValue] = useState(initialValue);
 
 	const onChange = useCallback(
 		(value) => {
 			if (typeof propsOnChange === "function") {
 				propsOnChange(value);
 			}
-			setValue(value);
+			setStateValue(value);
 		},
 		[propsOnChange]
 	);
 
 	return {
-		...restSelectProps,
+		...restProps,
 		values,
-		value,
+		defaultValue,
+		labelText,
+		value: stateValue,
 		max,
 		onChange,
 	};
